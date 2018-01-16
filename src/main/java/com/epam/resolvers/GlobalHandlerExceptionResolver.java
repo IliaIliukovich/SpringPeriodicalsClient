@@ -1,6 +1,7 @@
 package com.epam.resolvers;
 
 import org.apache.log4j.Logger;
+import org.springframework.security.oauth2.client.resource.UserRedirectRequiredException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +17,9 @@ public class GlobalHandlerExceptionResolver implements HandlerExceptionResolver 
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response,
                                          Object handler, Exception exception) {
+        if (exception instanceof UserRedirectRequiredException) {
+            throw (UserRedirectRequiredException) exception;
+        }
         logger.error("Exception: ", exception);
         return new ModelAndView("global_error");
     }
