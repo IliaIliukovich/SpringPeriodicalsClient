@@ -21,7 +21,8 @@
 
 	<div class="container">
 		
-		<h2>Welcome! Epam lab project</h2>
+		<h2>Welcome! Test client project.</h2>
+		<p>Connects to the Spring Periodicals app with OAuth2 and manages my journals list.</p>
 
 	</div>
 </body>
