@@ -49,7 +49,7 @@
 					 access-token-uri="${server.url}/oauth/token"
 					 client-secret="${client.secret}"
 					 type="authorization_code"
-					 scope="read" />
+					 scope="all_actions" />
 
 	<oauth2:rest-template id="oauthTemplate" resource="periodicalsResource"/>
 

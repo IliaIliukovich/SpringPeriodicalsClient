@@ -29,7 +29,7 @@ public class MyJournalController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String getMyJournals(Model model){
 		logger.info("Connecting to: " + serverUrl);
-		List<Journal> mySubscriptionJournals = oauthTemplate.getForObject(serverUrl + "/api/mysubscriptions", List.class);
+		List<Journal> mySubscriptionJournals = oauthTemplate.getForObject(serverUrl + "/rest/mysubscriptions", List.class);
 		model.addAttribute("mySubscriptionJournals", mySubscriptionJournals);
 		return "/myjournals";
 	}
