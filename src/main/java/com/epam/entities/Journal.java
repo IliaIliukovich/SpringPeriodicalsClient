@@ -1,36 +1,19 @@
 package com.epam.entities;
 
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotBlank;
-
-import javax.persistence.*;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-@Entity
 public class Journal {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id_journal;
 
-    @NotBlank(message = "Please, enter name")
-    @Length(max = 45, message = "Name length should be no more than 45 symbols")
     private String name;
 
     private String description;
 
-    @NotNull(message = "Please, enter price")
-    @DecimalMin(value = "10", message = "Price must be higher than {value}")
-    @DecimalMax(value = "1000000", message = "Nobody will bye such a journal! Max value {value}")
     private BigDecimal price;
 
-    @Transient
     private State state = State.UNSUBSCRIBED;
 
-    @Transient
     private long relationalTableId;
 
     public Journal() {
